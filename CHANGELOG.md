@@ -10,3 +10,16 @@
 - Added detailed engineering documentation for:
   - Project Setup
   - Login Automation
+
+## v0.3.0 - Inventory Validation
+
+### Added
+
+- Validated inventory page after login.
+- Verified product count.
+- Verified every product contains:
+  - Name
+  - Description
+  - Price
+  - Image
+  - Add to Cart button.
