@@ -24,7 +24,10 @@ test('Verify Inventory Page', async ({ page }) => {
 
     // Verify every product has required information
 
-    for (let i = 0; i < await products.count(); i++) {
+    // for (let i = 0; i < await products.count(); i++) 
+    const productCount = await products.count();
+
+    for (let i = 0; i < productCount; i++) {
 
         const product = products.nth(i);
 
