@@ -1,29 +1,17 @@
-# Playwright E-Commerce Automation Framework
+# Playwright Ecommerce Automation
 
-An end-to-end QA Automation Framework built using **Playwright** and **TypeScript** to automate and validate core user workflows of an e-commerce web application.
+A production-style Playwright automation framework built while learning modern UI test automation from scratch.
 
-This project is being developed incrementally while following software engineering best practices, proper framework architecture, and industry-standard documentation.
-
-The objective is not only to automate test cases but also to design a scalable, maintainable, and reusable automation framework suitable for enterprise-level QA projects.
+The project is designed to follow real-world automation architecture instead of writing simple standalone test scripts.
 
 ---
 
-# Project Objectives
-
-- Build a production-style Playwright automation framework
-- Learn Playwright through practical implementation
-- Follow industry-standard QA automation practices
-- Implement reusable Page Object Model (POM)
-- Maintain detailed technical documentation for every development phase
-- Maintain clean Git history using conventional commit messages
-
----
-
-# Technology Stack
+# Tech Stack
 
 - Playwright
 - TypeScript
 - Node.js
+- VS Code
 - Git
 - GitHub
 
@@ -32,91 +20,140 @@ The objective is not only to automate test cases but also to design a scalable, 
 # Project Structure
 
 ```
-playwright-ecommerce-automation/
-
+playwright-ecommerce-automation
 │
-├── docs/
-│   ├── 01-project-setup.md
-│   ├── 02-login-automation.md
-│   ├── 03-inventory-verification.md
-│   ├── 04-page-object-model.md
+├── docs
 │
-├── pages/
+├── pages
+│   ├── LoginPage.ts
+│   └── InventoryPage.ts
 │
-├── tests/
+├── tests
+│   ├── login.spec.ts
+│   └── inventory.spec.ts
 │
-├── test-data/
+├── test-data
 │
-├── utils/
+├── utils
 │
-├── README.md
-├── ROADMAP.md
-├── CHANGELOG.md
 ├── playwright.config.ts
 ├── package.json
+├── README.md
+├── ROADMAP.md
+└── CHANGELOG.md
 ```
 
 ---
 
 # Features Implemented
 
-### Project Setup
+## Phase 01
 
-- Playwright Installation
-- TypeScript Configuration
-- Git Repository Initialization
-- Project Architecture
-- HTML Test Reporting
+- Playwright project setup
+- TypeScript configuration
+- Git repository initialization
+- Playwright configuration
+- Browser installation
 
 ---
+
+## Phase 02
 
 ### Login Automation
 
-- Launch Browser
-- Navigate to Swag Labs
-- Enter Username
-- Enter Password
-- Click Login
-- Verify Successful Login
+Implemented automated login using valid credentials.
+
+Covered:
+
+- Page navigation
+- Username entry
+- Password entry
+- Login button click
+- Successful login verification
 
 ---
 
-### Inventory Verification
+## Phase 03
 
-- Validate Inventory URL
-- Verify Total Product Count
-- Validate Product Name
-- Validate Product Description
-- Validate Product Price
-- Validate Product Image
-- Validate Add to Cart Button
+### Inventory Validation
 
----
+Validated the Inventory page after successful login.
 
-### Page Object Model (POM)
+Covered:
 
-- LoginPage abstraction
-- Reusable login methods
-- Separation of business logic from test assertions
-- Improved framework maintainability
+- Inventory page URL verification
+- Product count verification
+- Product information validation
+- Image validation
+- Price validation
+- Product description validation
+- Add to Cart button validation
 
 ---
 
-# Documentation
+## Phase 04
 
-Every implementation phase is documented in detail inside the **docs** folder.
+### Login Page Object Model
 
-Each document includes:
+Implemented the first Page Object.
 
-- Objective
-- Design Decisions
-- Engineering Trade-offs
-- Concepts Learned
-- Best Practices
-- Interview Questions
-- Future Improvements
+Covered:
 
-This repository is intended to serve both as an automation framework and a structured learning resource.
+- LoginPage class
+- Centralized login locators
+- Reusable navigation method
+- Reusable login method
+- Cleaner test files
+
+---
+
+## Phase 05
+
+### Inventory Page Object Model
+
+Implemented Inventory Page Object.
+
+Covered:
+
+- InventoryPage class
+- Centralized inventory locators
+- Inventory page validation method
+- Product validation method
+- Reusable inventory assertions
+- Optimized collection handling using stored count
+- Cleaner test architecture
+
+---
+
+# Current Architecture
+
+```
+Test
+ │
+ ▼
+LoginPage
+ │
+ ▼
+InventoryPage
+ │
+ ▼
+Playwright API
+ │
+ ▼
+Browser
+```
+
+---
+
+# Design Principles
+
+The framework currently follows:
+
+- Page Object Model (POM)
+- DRY (Don't Repeat Yourself)
+- Single Responsibility Principle (SRP)
+- Separation of Concerns
+- Reusable Components
 
 ---
 
@@ -124,82 +161,46 @@ This repository is intended to serve both as an automation framework and a struc
 
 - Project Setup
 - Login Automation
-- Inventory Verification
+- Inventory Validation
 - Login Page Object Model
-
----
-
-# Upcoming Features
-
 - Inventory Page Object Model
-- Cart Automation
-- Checkout Automation
-- Data-Driven Testing
+- BasePage
+- Utilities
+- Test Data Management
+- Hooks
+- Reporting
+- CI/CD
+
+---
+
+# Documentation
+
+Detailed notes for every phase are available inside the `docs/` folder.
+
+Current documentation includes:
+
+- 01-project-setup.md
+- 02-login-automation.md
+- 03-inventory-validation.md
+- 04-page-object-model.md
+- 05-inventory-page-object-model.md
+
+---
+
+# Future Improvements
+
+- BasePage implementation
+- Custom utilities
 - Fixtures
-- Environment Configuration
-- API Testing
-- Cross Browser Execution
-- CI/CD using GitHub Actions
-- Allure Reporting
-
----
-
-# Running the Project
-
-Install dependencies
-
-```bash
-npm install
-```
-
-Run all tests
-
-```bash
-npx playwright test
-```
-
-Run a specific test
-
-```bash
-npx playwright test tests/login.spec.ts
-```
-
-Run headed mode
-
-```bash
-npx playwright test --headed
-```
-
-Open HTML Report
-
-```bash
-npx playwright show-report
-```
-
----
-
-# Learning Approach
-
-This project is intentionally developed phase-by-phase.
-
-For every implementation:
-
-- Feature is developed
-- Engineering decisions are documented
-- Trade-offs are recorded
-- Changes are committed using conventional Git commits
-- Code is pushed after every completed milestone
-
-This approach ensures the project remains maintainable while serving as a long-term learning resource.
+- Data-driven testing
+- Environment management
+- API testing
+- Parallel execution optimization
+- GitHub Actions CI/CD
+- Docker support
 
 ---
 
 # Author
 
-**Parth Balasaheb Sawant**
-
-GitHub:
-https://github.com/parthbsawant
-
-LinkedIn:
-https://linkedin.com/in/parthbsawant
+Parth Sawant
